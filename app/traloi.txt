@@ -1,0 +1,12 @@
+BT4:
+- Các phương thức vòng đời được gọi:
++ Khi người dùng bấm vào nút back: onPause -> onStop -> onDestroy
++ Khi người dùng mở lại ứng dụng: onCreate -> onStart -> onResume
+BT5:
+- Các phương thức vòng đời được gọi:
++ Khi người dùng bấm vào nút home: onPause -> onStop
++ Khi người dùng mở lại ứng dụng: onRestart -> onStart -> onResume
+BT6:
+- Sẽ lưu thông tin vào biến tạm khi thực hiện phương thức vòng đời onPause,
+ vì khi chạy lại ứng dụng (ứng dụng đã onDestroy trước đó rồi) sẽ thực hiện phương thức onCreate,
+ sẽ cho kiểm tra biến tạm có lưu thông tin gì hay không, nếu có thì khôi phục lại, nếu không thì thôi hoặc tạo mới.
