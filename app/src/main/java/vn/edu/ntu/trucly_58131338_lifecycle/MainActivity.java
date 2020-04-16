@@ -1,14 +1,21 @@
 package vn.edu.ntu.trucly_58131338_lifecycle;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
+import android.icu.text.SimpleDateFormat;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.TextView;
 import android.widget.Toast;
+
+import java.util.Date;
 
 public class MainActivity extends AppCompatActivity {
 
+    TextView txtTG;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,6 +50,7 @@ public class MainActivity extends AppCompatActivity {
         Toast.makeText(context, text, duration).show();
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.N)
     @Override
     protected void onResume() {
         super.onResume();
@@ -51,6 +59,11 @@ public class MainActivity extends AppCompatActivity {
         CharSequence text = "onResume called!";
         int duration = Toast.LENGTH_SHORT;
         Toast.makeText(context, text, duration).show();
+
+        txtTG = findViewById(R.id.txtTG);
+        SimpleDateFormat sdF = new SimpleDateFormat("HH:mm:ss");
+        String date = sdF.format(new Date());
+        txtTG.setText(date);
     }
 
     @Override
